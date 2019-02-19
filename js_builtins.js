@@ -22,6 +22,11 @@ window.builtins = {};
 builtins.trim = function(str) {
   let newStr = "";
   for (let i = 0; i < str.length; i++) {
+    if (i + 1 < str.length) {
+      if (str[i] === " " && str[i+1] !== " " && newStr !== "") {
+        newStr += str[i];
+      }
+    }
     if (str[i] !== " ") {
       newStr += str[i];
     }
@@ -45,11 +50,14 @@ builtins.trim = function(str) {
 // ex. builtins.search('Horizons', 'h') -> false
 
 builtins.search = function(sourceString, searchString) {
-  if (searchString.indexOf(sourceString)) {
-    return true;
-  } else {
-    return false;
+  for (let i = 0; i < searchString; i++) {
+    if (searchString.indexOf(sourceString[i])) {
+      
+    } else {
+      return false;
+    }
   }
+  return true;
 };
 
 // ----------------------------------------------------------------------------
