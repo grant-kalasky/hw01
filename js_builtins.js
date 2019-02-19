@@ -70,6 +70,10 @@ builtins.search = function(sourceString, searchString) {
 // ex. builtins.reverse([123]) -> [123]
 
 builtins.reverse = function(arr) {
-  let next = arr.pop();
-  return builtins.reverse(arr).concat(next);
+  if (length(arr) === 0) {
+    return;
+  } else {
+    let next = arr.pop();
+    return builtins.reverse(arr).concat(next);
+  }
 };
